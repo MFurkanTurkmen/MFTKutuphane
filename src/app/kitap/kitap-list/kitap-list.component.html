@@ -1,0 +1,35 @@
+<table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">islemler</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        @for(item of kitapList; track $index){
+            <tr>
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.code}}</td>
+                <td><p-button label="Update" (onClick)="editBook(item)" />
+
+                </td>
+              </tr>
+        }
+
+
+    </tbody>
+  </table>
+
+
+
+    <p-dialog header="Edit Profile" *ngIf="visible" position="top" [modal]="true" [(visible)]="visible" [style]="{ 'width': '450px' }">
+      <app-kitap-form [kitap]="seciliKitap"></app-kitap-form>
+    </p-dialog>
+
+
+
+
